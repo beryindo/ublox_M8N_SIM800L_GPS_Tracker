@@ -148,7 +148,7 @@ void loop()
     
 //    if ( actionState == AS_IDLE ) {
     if (fix.longitude() > 0 ) {
-      GSM_PORT.print("AT+HTTPPARA=\"URL\",\"http://gpsindo.web.id:5055/?id=081320054452");
+      GSM_PORT.print("AT+HTTPPARA=\"URL\",\"http://gpsindo.web.id:5055/?id=masukannohpdisini");
       GSM_PORT.print( F("&lat=") );
         GSM_PORT.print( fix.latitude(), 7 );
       GSM_PORT.print( F("&lon=") );
