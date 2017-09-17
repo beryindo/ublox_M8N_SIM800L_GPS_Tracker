@@ -23,6 +23,8 @@ GND ke GND
 
 Untuk free server tolong digunakan dengan bijak ya om
 http://www.gpsindo.web.id:81/
+email : arduino
+pas : arduino123
 
 Klik tanda +
 masukan nama (bebas mau nama apa saja)
@@ -30,3 +32,4 @@ masukan pengidentifikasi/identification dengan no hp yang ada di sim module liat
       GSM_PORT.print("AT+HTTPPARA=\"URL\",\"http://gpsindo.web.id:5055/?id=masukannohpdisini");
       contoh
       GSM_PORT.print("AT+HTTPPARA=\"URL\",\"http://gpsindo.web.id:5055/?id=081312357771");
+      
