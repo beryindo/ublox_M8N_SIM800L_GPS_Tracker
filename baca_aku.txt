@@ -33,3 +33,7 @@ masukan pengidentifikasi/identification dengan no hp yang ada di sim module liat
       contoh
       GSM_PORT.print("AT+HTTPPARA=\"URL\",\"http://gpsindo.web.id:5055/?id=081312357771");
       
+lib yang dibutuhkan
+https://github.com/adafruit/Adafruit-PCD8544-Nokia-5110-LCD-library
+https://codeload.github.com/SlashDevin/NeoGPS
+https://codeload.github.com/PaulStoffregen/AltSoftSerial
