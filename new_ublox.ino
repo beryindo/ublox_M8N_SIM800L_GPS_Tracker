@@ -51,8 +51,6 @@ void setup()
   delay(1000);
   GSM_PORT.println("AT+CNMI=2,2,0,0,0");
   delay(1000);
-  //  GSM_PORT.println("AT+CNMI=1,2,0,0,0");
-  //  delay(1000);
   GSM_PORT.println("AT+CIPMUX=0");
   delay(1000);
   GSM_PORT.println("AT+CGATT=1");
