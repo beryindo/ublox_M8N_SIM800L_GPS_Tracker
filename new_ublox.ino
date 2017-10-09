@@ -25,8 +25,7 @@ int StatRelay2;
 int StatRelay3;
 int StatRelay4;
 
-void setup()
-{
+void setup() {
   pinMode (Relay1 , OUTPUT);
   digitalWrite (Relay1, HIGH);
   pinMode (Relay2 , OUTPUT);
@@ -65,7 +64,7 @@ void setup()
   delay(2000);
 }
 
-uint8_t fixCount = 0;
+// uint8_t fixCount = 0;
 void loop() {
   digitalWrite(Relay1, StatRelay1);
   digitalWrite(Relay2, StatRelay2);
