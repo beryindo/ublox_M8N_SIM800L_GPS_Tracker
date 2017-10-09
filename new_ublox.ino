@@ -68,8 +68,7 @@ void setup()
 }
 
 uint8_t fixCount = 0;
-void loop()
-{
+void loop() {
   digitalWrite(Relay1, StatRelay1);
   digitalWrite(Relay2, StatRelay2);
   digitalWrite(Relay3, StatRelay3);
@@ -122,10 +121,8 @@ void loop()
   if (GSM_PORT.available()) {
     while (GSM_PORT.available() > 0) {
       bacaSMS += (char)GSM_PORT.read();
-      if (bacaSMS.indexOf("+6281312357771") >= 0)
-      {
-        if (bacaSMS.indexOf("hidup") >= 0)
-        {
+      if (bacaSMS.indexOf("+6281312357771") >= 0) {
+        if (bacaSMS.indexOf("hidup") >= 0) {
           StatRelay1 = ON;
           digitalWrite(Relay1, StatRelay1);
           delay(7000);
@@ -147,8 +144,7 @@ void loop()
           errorCounter = 0;
           bacaSMS.remove(0);
         }
-        else if (bacaSMS.indexOf("posisi") >= 0)
-        {
+        else if (bacaSMS.indexOf("posisi") >= 0) {
           GSM_PORT.println("AT+CMGS=\"+6281312357771\"");
           delay(1000);
           // latitude S hilangkan -, longtitud E
