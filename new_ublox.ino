@@ -113,45 +113,43 @@ void loop() {
   // SMS RELAY
   if (GSM_PORT.available()) {
     bacaSMS += (char)GSM_PORT.read();
-    if (bacaSMS.indexOf("+6281312357771") >= 0) {
-      if (bacaSMS.indexOf("hidup") >= 0) {
-        StatRelay1 = ON;
-        digitalWrite(Relay1, StatRelay1);
-        delay(7000);
-        StatRelay2 = ON;
-        digitalWrite(Relay2, StatRelay2);
-        delay(500);
-        StatRelay3 = ON;
-        digitalWrite(Relay3, StatRelay3);
-        delay(3000);
-        StatRelay2 = OFF;
-        StatRelay3 = OFF;
-        siap = 1;
-        errorCounter = 0;
-        bacaSMS.remove(0);
-      }
-      else if (bacaSMS.indexOf("mati") >= 0) {
-        StatRelay1 = OFF;
-        siap = 0;
-        errorCounter = 0;
-        bacaSMS.remove(0);
-      }
-      else if (bacaSMS.indexOf("posisi") >= 0) {
-        GSM_PORT.println("AT+CMGS=\"+6281312357771\"");
-        delay(1000);
-        // latitude S hilangkan -, longtitud E
-        GSM_PORT.print("http://maps.google.com/maps?q=");
-        String latS = String(fix.latitude(), 6);
-        latS.replace("-", "S");
-        GSM_PORT.print(latS);
-        GSM_PORT.print(",E");
-        GSM_PORT.println(fix.longitude(), 6);
-        delay(1000);
-        GSM_PORT.write(0x1A);
-        siap = 0;
-        errorCounter = 0;
-        bacaSMS.remove(0);
-      }
+    if (bacaSMS.indexOf("hidup") >= 0) {
+      StatRelay1 = ON;
+      digitalWrite(Relay1, StatRelay1);
+      delay(7000);
+      StatRelay2 = ON;
+      digitalWrite(Relay2, StatRelay2);
+      delay(500);
+      StatRelay3 = ON;
+      digitalWrite(Relay3, StatRelay3);
+      delay(3000);
+      StatRelay2 = OFF;
+      StatRelay3 = OFF;
+      siap = 1;
+      errorCounter = 0;
+      bacaSMS.remove(0);
+    }
+    else if (bacaSMS.indexOf("mati") >= 0) {
+      StatRelay1 = OFF;
+      siap = 0;
+      errorCounter = 0;
+      bacaSMS.remove(0);
+    }
+    else if (bacaSMS.indexOf("posisi") >= 0) {
+      GSM_PORT.println("AT+CMGS=\"+6281312357771\"");
+      delay(1000);
+      // latitude S hilangkan -, longtitud E
+      GSM_PORT.print("http://maps.google.com/maps?q=");
+      String latS = String(fix.latitude(), 6);
+      latS.replace("-", "S");
+      GSM_PORT.print(latS);
+      GSM_PORT.print(",E");
+      GSM_PORT.println(fix.longitude(), 6);
+      delay(1000);
+      GSM_PORT.write(0x1A);
+      siap = 0;
+      errorCounter = 0;
+      bacaSMS.remove(0);
     }
   }
   // AKHIR SMS RELAY
